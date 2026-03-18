@@ -1,0 +1,592 @@
+user:
+    menu:
+        type:
+            - gender: man
+                category:
+                    > topwear:
+                        - t-shirts
+                        - graphic t-shirts
+                        - polos
+                        - casual shirts
+                        - formal shirts
+                        - flannel shirts
+                        - linen shirts
+                        - denim shirts
+                        - hoodies
+                        - sweatshirts
+                        - sweaters
+                        - cardigans
+                        - jackets
+                        - bomber jackets
+                        - denim jackets
+                        - leather jackets
+                        - windbreakers
+                        - parkas
+                        - coats
+                        - trench coats
+                        - blazers
+                        - waistcoats
+                        - vests
+                        - tank tops
+                        - thermal tops
+
+                    > bottomwear:
+                        - jeans
+                        - slim fit jeans
+                        - regular fit jeans
+                        - relaxed fit jeans
+                        - ripped jeans
+                        - trousers
+                        - formal trousers
+                        - chinos
+                        - cargo pants
+                        - joggers
+                        - track pants
+                        - shorts
+                        - denim shorts
+                        - cargo shorts
+                        - athletic shorts
+                        - lounge pants
+                        - thermal bottoms
+
+                    > footwear:
+                        - sneakers
+                        - running shoes
+                        - training shoes
+                        - walking shoes
+                        - formal shoes
+                        - oxford shoes
+                        - derby shoes
+                        - brogues
+                        - loafers
+                        - moccasins
+                        - boots
+                        - ankle boots
+                        - chelsea boots
+                        - combat boots
+                        - sandals
+                        - flip flops
+                        - slides
+
+                    > innerwear:
+                        - briefs
+                        - boxers
+                        - boxer briefs
+                        - trunks
+                        - vests
+                        - undershirts
+                        - thermal innerwear
+                        - thermal tops
+                        - thermal bottoms
+                        - socks
+                        - ankle socks
+                        - crew socks
+                        - knee high socks
+
+                    > activewear:
+                        - gym t-shirts
+                        - compression shirts
+                        - training shorts
+                        - running shorts
+                        - track jackets
+                        - track pants
+                        - compression tights
+                        - sports hoodies
+
+                    > sleepwear:
+                        - pajama sets
+                        - night suits
+                        - lounge pants
+                        - sleep shorts
+                        - robes
+
+                    > accessories:
+                        - belts
+                        - wallets
+                        - card holders
+                        - caps
+                        - hats
+                        - scarves
+                        - mufflers
+                        - gloves
+                        - watches
+                        - sunglasses
+                        - backpacks
+                        - messenger bags
+                        - duffle bags
+                        - ties
+                        - bow ties
+                        - pocket squares
+                        - cufflinks
+                        - bracelets
+                        - rings
+            - gender: woman
+                category:
+                    > topwear:
+                        - t-shirts
+                        - graphic t-shirts
+                        - tank tops
+                        - camisoles
+                        - crop tops
+                        - blouses
+                        - shirts
+                        - tunics
+                        - hoodies
+                        - sweatshirts
+                        - sweaters
+                        - cardigans
+                        - jackets
+                        - denim jackets
+                        - leather jackets
+                        - blazers
+                        - coats
+                        - trench coats
+                        - shrugs
+
+                    > bottomwear:
+                        - jeans
+                        - skinny jeans
+                        - straight jeans
+                        - wide leg jeans
+                        - trousers
+                        - formal trousers
+                        - chinos
+                        - joggers
+                        - track pants
+                        - leggings
+                        - jeggings
+                        - palazzos
+                        - culottes
+                        - shorts
+                        - skirts
+                        - mini skirts
+                        - midi skirts
+                        - maxi skirts
+
+                    > dresses:
+                        - casual dresses
+                        - evening dresses
+                        - cocktail dresses
+                        - bodycon dresses
+                        - wrap dresses
+                        - shift dresses
+                        - maxi dresses
+                        - midi dresses
+                        - mini dresses
+                        - summer dresses
+
+                    > ethnicwear:
+                        - sarees
+                        - blouses
+                        - lehenga
+                        - lehenga choli
+                        - salwar suits
+                        - churidar suits
+                        - anarkali suits
+                        - kurtas
+                        - kurtis
+                        - ethnic skirts
+                        - dupattas
+
+                    > footwear:
+                        - sneakers
+                        - running shoes
+                        - training shoes
+                        - flats
+                        - ballerinas
+                        - loafers
+                        - heels
+                        - stilettos
+                        - block heels
+                        - wedges
+                        - boots
+                        - ankle boots
+                        - knee high boots
+                        - sandals
+                        - flip flops
+                        - slides
+
+                    > innerwear:
+                        - bras
+                        - sports bras
+                        - bralettes
+                        - panties
+                        - hipsters
+                        - bikinis
+                        - thongs
+                        - camisoles
+                        - shapewear
+                        - thermal innerwear
+                        - socks
+                        - stockings
+                        - tights
+
+                    > activewear:
+                        - sports bras
+                        - workout tops
+                        - gym t-shirts
+                        - yoga tops
+                        - yoga pants
+                        - leggings
+                        - running shorts
+                        - training shorts
+                        - track jackets
+                        - track pants
+                        - sports hoodies
+
+                    > sleepwear:
+                        - night suits
+                        - night dresses
+                        - pajama sets
+                        - lounge pants
+                        - sleep shorts
+                        - robes
+
+                    > accessories:
+                        - belts
+                        - handbags
+                        - tote bags
+                        - clutches
+                        - backpacks
+                        - scarves
+                        - shawls
+                        - hats
+                        - caps
+                        - gloves
+                        - sunglasses
+                        - watches
+                        - necklaces
+                        - earrings
+                        - bracelets
+                        - rings
+                        - anklets
+            - gender: teen
+                category:
+                    > topwear:
+                        - t-shirts
+                        - graphic t-shirts
+                        - polos
+                        - casual shirts
+                        - hoodies
+                        - sweatshirts
+                        - sweaters
+                        - cardigans
+                        - jackets
+                        - denim jackets
+                        - bomber jackets
+                        - varsity jackets
+                        - flannel shirts
+                        - crop tops
+                        - tank tops
+                        - camisoles
+
+                    > bottomwear:
+                        - jeans
+                        - skinny jeans
+                        - straight jeans
+                        - relaxed fit jeans
+                        - cargo pants
+                        - joggers
+                        - track pants
+                        - leggings
+                        - jeggings
+                        - shorts
+                        - denim shorts
+                        - athletic shorts
+                        - skirts
+                        - mini skirts
+                        - midi skirts
+
+                    > dresses:
+                        - casual dresses
+                        - skater dresses
+                        - bodycon dresses
+                        - wrap dresses
+                        - mini dresses
+                        - midi dresses
+                        - summer dresses
+                        - party dresses
+
+                    > footwear:
+                        - sneakers
+                        - running shoes
+                        - training shoes
+                        - skate shoes
+                        - slip-ons
+                        - loafers
+                        - sandals
+                        - flip flops
+                        - slides
+                        - ankle boots
+
+                    > innerwear:
+                        - bras
+                        - sports bras
+                        - bralettes
+                        - panties
+                        - hipsters
+                        - briefs
+                        - boxers
+                        - boxer briefs
+                        - camisoles
+                        - vests
+                        - socks
+                        - ankle socks
+                        - crew socks
+
+                    > activewear:
+                        - gym t-shirts
+                        - workout tops
+                        - sports bras
+                        - yoga tops
+                        - leggings
+                        - compression tights
+                        - running shorts
+                        - training shorts
+                        - track jackets
+                        - track pants
+                        - sports hoodies
+
+                    > sleepwear:
+                        - pajama sets
+                        - night suits
+                        - night dresses
+                        - lounge pants
+                        - sleep shorts
+                        - robes
+
+                    > accessories:
+                        - caps
+                        - beanies
+                        - belts
+                        - wallets
+                        - card holders
+                        - backpacks
+                        - sling bags
+                        - mini backpacks
+                        - sunglasses
+                        - watches
+                        - bracelets
+                        - rings
+                        - necklaces
+            - gender: kid
+                category:
+                    > topwear:
+                        - t-shirts
+                        - graphic t-shirts
+                        - polos
+                        - casual shirts
+                        - hoodies
+                        - sweatshirts
+                        - sweaters
+                        - cardigans
+                        - jackets
+                        - denim jackets
+                        - bomber jackets
+                        - tank tops
+                        - thermal tops
+
+                    > bottomwear:
+                        - jeans
+                        - trousers
+                        - joggers
+                        - track pants
+                        - cargo pants
+                        - leggings
+                        - jeggings
+                        - shorts
+                        - denim shorts
+                        - athletic shorts
+                        - skirts
+                        - mini skirts
+
+                    > dresses:
+                        - casual dresses
+                        - party dresses
+                        - frocks
+                        - skater dresses
+                        - summer dresses
+                        - tutu dresses
+
+                    > sets:
+                        - co-ord sets
+                        - top and bottom sets
+                        - t-shirt and shorts sets
+                        - shirt and shorts sets
+                        - tracksuit sets
+                        - winter sets
+
+                    > footwear:
+                        - sneakers
+                        - running shoes
+                        - casual shoes
+                        - sandals
+                        - flip flops
+                        - slides
+                        - boots
+                        - school shoes
+
+                    > innerwear:
+                        - briefs
+                        - boxers
+                        - vests
+                        - camisoles
+                        - training bras
+                        - panties
+                        - socks
+                        - ankle socks
+                        - crew socks
+                        - thermal innerwear
+
+                    > sleepwear:
+                        - pajama sets
+                        - night suits
+                        - night dresses
+                        - onesies
+                        - lounge sets
+
+                    > activewear:
+                        - sports t-shirts
+                        - gym shorts
+                        - track pants
+                        - leggings
+                        - sports hoodies
+                        - training sets
+
+                    > accessories:
+                        - caps
+                        - hats
+                        - gloves
+                        - scarves
+                        - backpacks
+                        - lunch bags
+                        - sunglasses
+                        - watches
+                        - hairbands
+                        - hair clips
+            - gender: infant
+                category:
+                    > topwear:
+                        - bodysuits
+                        - onesies
+                        - t-shirts
+                        - polos
+                        - shirts
+                        - sweaters
+                        - cardigans
+                        - hoodies
+                        - sweatshirts
+                        - jackets
+                        - thermal tops
+
+                    > bottomwear:
+                        - pants
+                        - leggings
+                        - joggers
+                        - bloomers
+                        - shorts
+                        - diaper covers
+                        - thermal bottoms
+
+                    > dresses:
+                        - baby dresses
+                        - party dresses
+                        - frocks
+                        - summer dresses
+                        - tutu dresses
+
+                    > sets:
+                        - romper sets
+                        - bodysuit sets
+                        - top and bottom sets
+                        - shirt and shorts sets
+                        - winter sets
+                        - gift sets
+
+                    > sleepwear:
+                        - sleep suits
+                        - pajama sets
+                        - night suits
+                        - footed pajamas
+                        - onesies
+
+                    > outerwear:
+                        - jackets
+                        - coats
+                        - hooded jackets
+                        - snowsuits
+                        - pram suits
+
+                    > footwear:
+                        - soft sole shoes
+                        - crib shoes
+                        - baby sneakers
+                        - sandals
+                        - booties
+                        - socks
+
+                    > accessories:
+                        - caps
+                        - hats
+                        - mittens
+                        - bibs
+                        - blankets
+                        - swaddles
+                        - headbands
+                        - hair clips
+                        - socks
+        - occasion:
+            > formal
+            > informal
+            > wedding
+            > 
+        - season:
+            > summer
+            > winter
+            > spring
+            > autumn
+            > rain
+            > all-season
+        - fabric:
+            > cotton
+            > wool
+            > silk
+            > linen
+            > polyester
+            > denim
+            > leather
+            > velvet
+
+    website wide features:
+        - multilingual support
+        - multicurrency support
+        - light/Dark themes
+        - buy as guest
+        - search
+        - product filters and sorting
+        - cart
+        - membership
+    
+    product based features:
+        - similar products recommendation
+        - style with clustering
+        - size guide
+        - reviews
+    
+    product schema:
+        - name
+        - category
+        - occasion
+        - pics
+        - season
+        - style with clustering id
+        - fabric
+        - description (materials, usage, ...)
+        - handling/special notes
+        - available sizes
+        - price
+        - discounts
+        - bg theme (default: themecontext white/black)
+
+
+admin:
