@@ -5,12 +5,11 @@ const ImageSequenceScroll: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [frames, setFrames] = useState<HTMLImageElement[]>([]);
   const [loaded, setLoaded] = useState(false);
-  const rafId = useRef<number | null>(null); // Fixed: provide null as initial value
+  const rafId = useRef<number | null>(null);
   const currentFrameRef = useRef<number>(0);
-  const totalFrames = 150; // Match your extracted frame count
+  const totalFrames = 150;
 
   useEffect(() => {
-    // Preload all frames
     const loadFrames = async () => {
       const framePromises: Promise<HTMLImageElement>[] = [];
       
@@ -41,24 +40,60 @@ const ImageSequenceScroll: React.FC = () => {
     });
     if (!ctx) return;
 
-    // Only draw if frame changed
+    // Ensure canvas has dimensions
+    if (canvas.width === 0 || canvas.height === 0) {
+      if (canvas.parentElement) {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
+    }
+
     if (frameIndex !== currentFrameRef.current) {
       ctx.drawImage(frames[frameIndex], 0, 0, canvas.width, canvas.height);
       currentFrameRef.current = frameIndex;
     }
   }, [frames]);
 
+  // Set canvas dimensions and draw first frame as soon as component mounts
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const setCanvasDimensions = () => {
+      if (canvas.parentElement) {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+      }
+    };
+
+    setCanvasDimensions();
+    window.addEventListener('resize', setCanvasDimensions);
+
+    return () => window.removeEventListener('resize', setCanvasDimensions);
+  }, []);
+
+  // Draw frame 0 as soon as frames are loaded
+  useEffect(() => {
+    if (!loaded || !canvasRef.current || frames.length === 0) return;
+    
+    // Force a redraw of frame 0
+    currentFrameRef.current = -1; // Reset to force redraw
+    updateFrame(0);
+  }, [loaded, frames, updateFrame]);
+
   useEffect(() => {
     if (!loaded || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
     
-    // Set canvas dimensions to match viewport
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    // Draw first frame
-    updateFrame(0);
+    const updateCanvasSize = () => {
+      if (canvas.parentElement) {
+        canvas.width = canvas.parentElement.clientWidth;
+        canvas.height = canvas.parentElement.clientHeight;
+        // Redraw current frame after resize
+        updateFrame(currentFrameRef.current);
+      }
+    };
 
     const onScroll = () => {
       if (rafId.current) cancelAnimationFrame(rafId.current);
@@ -68,26 +103,30 @@ const ImageSequenceScroll: React.FC = () => {
         const maxScroll = document.body.scrollHeight - window.innerHeight;
         const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
         
-        // Calculate frame index
-        const frameIndex = Math.floor(progress * (totalFrames - 1));
+        // Map progress to use all frames within first 70% of scroll (4 viewports)
+        const adjustedProgress = Math.min(progress / 0.7, 1);
+        const frameIndex = Math.floor(adjustedProgress * (totalFrames - 1));
         
-        updateFrame(frameIndex);
-        rafId.current = null; // Changed from undefined to null
+        if (frameIndex < totalFrames) {
+          updateFrame(frameIndex);
+        }
+        
+        rafId.current = null;
       });
     };
 
-    const onResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      updateFrame(currentFrameRef.current);
-    };
+    // Set initial frame
+    const scrollY = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
+    const adjustedProgress = Math.min(progress / 0.7, 1);
+    const frameIndex = Math.floor(adjustedProgress * (totalFrames - 1));
+    updateFrame(frameIndex);
 
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onResize);
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onResize);
       if (rafId.current) cancelAnimationFrame(rafId.current);
     };
   }, [loaded, updateFrame]);
@@ -96,15 +135,12 @@ const ImageSequenceScroll: React.FC = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        width: '100vw',
-        height: '100vh',
+        width: '100%',
+        height: '100%',
         objectFit: 'contain',
         pointerEvents: 'none',
         backgroundColor: 'black',
-        imageRendering: 'auto',
+        display: 'block',
       }}
     />
   );
