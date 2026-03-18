@@ -14,18 +14,16 @@ export default function Home() {
   });
  
   const fontSize = useTransform(scrollYProgress, [0, 0.3], ["clamp(277px, 20vw, 400px)", "54px"]);
-  const top = useTransform(scrollYProgress, [0, 0.3], ["50%", "0%"]);
-  const translateY = useTransform(scrollYProgress, [0, 0.3], ["-50%", "0%"]);
+  const top = useTransform(scrollYProgress, [0, 0.3], ["100%", "0%"]);
+  const translateY = useTransform(scrollYProgress, [0, 0.3], ["-100%", "0%"]);
   const paddingY = useTransform(scrollYProgress, [0, 0.3], ["0px", "16px"]);
-  const height = useTransform(scrollYProgress, [0, 0.3], ["100vh", "70px"]); // Added this line
+  const height = useTransform(scrollYProgress, [0, 0.3], ["100vh", "70px"]);
   const backgroundColor = useTransform(scrollYProgress, [0, 0.3], ["rgba(0,0,0,1)", "rgba(0,0,0,1)"]);
   const color = useTransform(scrollYProgress, [0, 0.3], ["#ffffff", "#ffffff"]);
  
   return (
     <div ref={containerRef} className="relative">
- 
-      {/* Tall scroll region — gives scroll distance for the animation to run */}
-      <div className="h-[150vh] w-[100vw] flex items-center justify-center bg-black">
+      <div className="h-[150vh] w-[100vw] bg-black">
         <motion.div
           className={`fixed left-0 right-0 flex items-center justify-center z-50 ${it.className}`}
           style={{
@@ -35,14 +33,14 @@ export default function Home() {
             paddingBottom: paddingY,
             fontSize,
             color,
-            backgroundColor
+            backgroundColor,
+            // height,
           }}
         >
           THREADVALE
         </motion.div>
       </div>
  
-      {/* Content sections — sit naturally below the scroll region */}
       <section className="h-screen w-full flex items-center justify-center bg-white">
         <p className="text-2xl text-gray-400">Section 1</p>
       </section>
@@ -54,7 +52,6 @@ export default function Home() {
       <section className="h-screen w-full flex items-center justify-center bg-white">
         <p className="text-2xl text-gray-400">Section 3</p>
       </section>
- 
     </div>
   );
 }
