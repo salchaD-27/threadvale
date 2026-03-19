@@ -21,6 +21,7 @@ export default function Home() {
   const translateY = useTransform(scrollYProgress, [0, 0.1], ["-100%", "0%"]);
   const paddingY = useTransform(scrollYProgress, [0, 0.1], ["0px", "16px"]);
   const color = useTransform(scrollYProgress, [0, 0.1], ["#ffffff", "#ffffff"]);
+  const headerBlur = useTransform(scrollYProgress, [0.1, 0.15], ["blur(0px)", "blur(12px)"]);
   
   // Control visibility of side headers
   const sideHeadersOpacity = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
@@ -64,6 +65,9 @@ export default function Home() {
           color,
           textShadow: "0 0 20px rgba(0,0,0,0.5)",
           pointerEvents: 'auto',
+          backdropFilter: headerBlur, 
+          WebkitBackdropFilter: headerBlur, // safari support
+          // backgroundColor: useTransform(scrollYProgress, [0.1, 0.15], ["rgba(0,0,0,0)", "rgba(0,0,0,0.2)"]),
         }}
       >
         <div className="h-full w-full flex items-center justify-center">
