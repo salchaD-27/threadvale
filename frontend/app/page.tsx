@@ -4,6 +4,8 @@ import { useScroll, useTransform, motion } from "framer-motion";
 import { Italiana } from 'next/font/google';
 import { useRef } from "react";
 import ImageSequenceScroll from "./components/LandingShirt";
+import MenuOpenClose from "./components/MenuToggle";
+import MenuToggle from "./components/MenuToggle";
  
 const it = Italiana({ weight: ['400'] });
  
@@ -20,6 +22,9 @@ export default function Home() {
   const translateY = useTransform(scrollYProgress, [0, 0.1], ["-100%", "0%"]);
   const paddingY = useTransform(scrollYProgress, [0, 0.1], ["0px", "16px"]);
   const color = useTransform(scrollYProgress, [0, 0.1], ["#ffffff", "#ffffff"]);
+  
+  // Control visibility of side headers - only appear after header is fixed
+  const sideHeadersOpacity = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
   
   // Shirt opacity - fades out at the very end of Div4
   const shirtOpacity = useTransform(scrollYProgress, [0.6, 0.7], [1, 0]);
@@ -40,10 +45,45 @@ export default function Home() {
           fontSize,
           color,
           textShadow: "0 0 20px rgba(0,0,0,0.5)",
-          pointerEvents: 'none',
+          pointerEvents: 'auto',
         }}
       >
-        THREADVALE
+        <div className="h-full w-full flex items-center justify-center">
+          {/* Left header - fades in */}
+          <motion.div 
+            id='header-divL' 
+            className="h-full w-1/4 flex items-center justify-center tracking-widest"
+            style={{ opacity: sideHeadersOpacity }}
+          >
+            <MenuToggle/>
+          </motion.div>
+          
+          {/* Center header - always visible */}
+          <div id='header-divC' className="h-full w-2/4 flex items-center justify-center">
+            THREADVALE
+          </div>
+          
+          {/* Right header - fades in */}
+          <motion.div 
+            id='header-divR' 
+            className="h-full w-1/4 flex items-center justify-center tracking-widest"
+            style={{ opacity: sideHeadersOpacity }}
+          >
+            <div className="h-auto w-auto px-[10px] py-[10px] flex items-center justify-center font-medium text-[17px]">
+              <motion.img src='icons/account.png' 
+                className="h-[27px] w-auto object-contain cursor-pointer"
+                whileHover={{ 
+                  scale: 1.1,
+                  opacity: 0.9
+                }}
+                transition={{ 
+                  duration: 0.2,
+                  ease: "easeOut"
+                }}
+              />
+            </div>
+          </motion.div>
+        </div>
       </motion.div>
 
       {/* Shirt section - exactly 4 viewports */}
@@ -61,9 +101,11 @@ export default function Home() {
           <ImageSequenceScroll/>
         </motion.div>
         
-        {/* First viewport - Div1 with shirt (no overlay) */}
+        {/* First viewport - Div1 with shirt */}
         <div className="h-screen w-full relative z-10">
-          {/* Empty - shirt shows through */}
+          <div className="w-full h-full flex items-center justify-center">
+            <p className="text-2xl text-white font-bold bg-black/30 px-6 py-3 rounded-full backdrop-blur-sm">Div1 - Pure Shirt</p>
+          </div>
         </div>
         
         {/* Second viewport - Div2 with semi-transparent overlay */}
